@@ -1,0 +1,65 @@
+digraph G {
+node [shape=box];
+"bacino" [label="bacino"];
+"virtual_alto_dx" [label="virtual_alto_dx"];
+"virtual_basso_dx" [label="virtual_basso_dx"];
+"femore_dx" [label="femore_dx"];
+"tibia_dx" [label="tibia_dx"];
+"virtual_piede_dx" [label="virtual_piede_dx"];
+"piede_dx" [label="piede_dx"];
+"sensore_dx1" [label="sensore_dx1"];
+"sensore_dx2" [label="sensore_dx2"];
+"sensore_dx3" [label="sensore_dx3"];
+"sensore_dx4" [label="sensore_dx4"];
+"virtual_alto_sx" [label="virtual_alto_sx"];
+"virtual_basso_sx" [label="virtual_basso_sx"];
+"femore_sx" [label="femore_sx"];
+"tibia_sx" [label="tibia_sx"];
+"virtual_piede_sx" [label="virtual_piede_sx"];
+"piede_sx" [label="piede_sx"];
+"sensore_sx1" [label="sensore_sx1"];
+"sensore_sx2" [label="sensore_sx2"];
+"sensore_sx3" [label="sensore_sx3"];
+"sensore_sx4" [label="sensore_sx4"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"bacino" -> "bacino_femore_dx_Z" [label="xyz: -0.077438 0.035045 -0.0054533 \nrpy: -3.14159 4.23516e-22 -1.5708"]
+"bacino_femore_dx_Z" -> "virtual_alto_dx"
+"virtual_alto_dx" -> "bacino_femore_dx_X" [label="xyz: 0 0 0.0944 \nrpy: 0 -0 -3.14159"]
+"bacino_femore_dx_X" -> "virtual_basso_dx"
+"virtual_basso_dx" -> "bacino_femore_dx_Y" [label="xyz: 0 0 0 \nrpy: 1.5708 4.23516e-22 3.14159"]
+"bacino_femore_dx_Y" -> "femore_dx"
+"femore_dx" -> "ginocchio_dx" [label="xyz: -0.00067494 0.18 0 \nrpy: 0 -0 0"]
+"ginocchio_dx" -> "tibia_dx"
+"tibia_dx" -> "tibia_piede_dx_Y" [label="xyz: -0.011973 0.18 0 \nrpy: 0 -1.5708 0"]
+"tibia_piede_dx_Y" -> "virtual_piede_dx"
+"virtual_piede_dx" -> "tibia_piede_dx_X" [label="xyz: 0 0 0 \nrpy: 1.5708 -0 0"]
+"tibia_piede_dx_X" -> "piede_dx"
+"piede_dx" -> "joint_sensore_dx1" [label="xyz: -0.043 -0.066 -0.045 \nrpy: 0 -0 0"]
+"joint_sensore_dx1" -> "sensore_dx1"
+"piede_dx" -> "joint_sensore_dx2" [label="xyz: 0.017 -0.066 -0.045 \nrpy: 0 -0 0"]
+"joint_sensore_dx2" -> "sensore_dx2"
+"piede_dx" -> "joint_sensore_dx3" [label="xyz: -0.043 0.024 -0.041 \nrpy: 3.14159 -0 3.14159"]
+"joint_sensore_dx3" -> "sensore_dx3"
+"piede_dx" -> "joint_sensore_dx4" [label="xyz: 0.017 0.024 -0.041 \nrpy: 3.14159 -0 3.14159"]
+"joint_sensore_dx4" -> "sensore_dx4"
+"bacino" -> "bacino_femore_sx_Z" [label="xyz: 0.075562 0.035045 -0.0054533 \nrpy: -3.14159 4.23516e-22 -1.5708"]
+"bacino_femore_sx_Z" -> "virtual_alto_sx"
+"virtual_alto_sx" -> "bacino_femore_sx_X" [label="xyz: 0 0 0.0944 \nrpy: 0 -0 -3.14159"]
+"bacino_femore_sx_X" -> "virtual_basso_sx"
+"virtual_basso_sx" -> "bacino_femore_sx_Y" [label="xyz: 0 0 0 \nrpy: 1.5708 4.23516e-22 3.14159"]
+"bacino_femore_sx_Y" -> "femore_sx"
+"femore_sx" -> "ginocchio_sx" [label="xyz: -0.00067494 0.18 0 \nrpy: 0 -0 0"]
+"ginocchio_sx" -> "tibia_sx"
+"tibia_sx" -> "tibia_piede_sx_Y" [label="xyz: -0.011973 0.18 0 \nrpy: 0 -1.5708 0"]
+"tibia_piede_sx_Y" -> "virtual_piede_sx"
+"virtual_piede_sx" -> "tibia_piede_sx_X" [label="xyz: 0 0 0 \nrpy: 1.5708 -0 0"]
+"tibia_piede_sx_X" -> "piede_sx"
+"piede_sx" -> "joint_sensore_sx1" [label="xyz: -0.017 -0.066 -0.045 \nrpy: 0 -0 0"]
+"joint_sensore_sx1" -> "sensore_sx1"
+"piede_sx" -> "joint_sensore_sx2" [label="xyz: 0.043 -0.066 -0.045 \nrpy: 0 -0 0"]
+"joint_sensore_sx2" -> "sensore_sx2"
+"piede_sx" -> "joint_sensore_sx3" [label="xyz: -0.017 0.024 -0.045 \nrpy: 0 -0 0"]
+"joint_sensore_sx3" -> "sensore_sx3"
+"piede_sx" -> "joint_sensore_sx4" [label="xyz: 0.043 0.024 -0.045 \nrpy: 0 -0 0"]
+"joint_sensore_sx4" -> "sensore_sx4"
+}

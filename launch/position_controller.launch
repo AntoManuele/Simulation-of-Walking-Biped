@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<launch>
+	
+	<rosparam file="$(find biped_sensor)/biped_control/config/position_controller.yaml" command="load"/>
+	
+	<node name="biped_sensor_control"
+	 pkg="controller_manager" 
+	 type="spawner"
+	 respawn="false"
+	 output="screen" 
+	 ns="/biped_sensor"
+	 args="joint_state_controller bacino_femore_sx_Z_position  
+	   bacino_femore_sx_Y_position
+	   bacino_femore_sx_X_position
+	   ginocchio_sx_position 
+	   tibia_piede_sx_X_position 
+	   tibia_piede_sx_Y_position 
+	   bacino_femore_dx_Z_position 	
+	   bacino_femore_dx_Y_position
+	   bacino_femore_dx_X_position
+	   ginocchio_dx_position
+	   tibia_piede_dx_X_position
+	   tibia_piede_dx_Y_position" />
+
+</launch>
+
+
+
+
+

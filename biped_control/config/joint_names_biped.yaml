@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'bacino_femore_sx_Z', 'bacino_femore_sx_X', 'bacino_femore_sx_Y', 'ginocchio_sx', 'tibia_piede_sx_Y', 'tibia_piede_sx_X', 'bacino_femore_dx_Z', 'bacino_femore_dx_X', 'bacino_femore_dx_Y', 'ginocchio_dx', 'tibia_piede_dx_Y', 'tibia_piede_dx_X', ]

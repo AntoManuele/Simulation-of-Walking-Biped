@@ -1,0 +1,74 @@
+biped_sensor:
+   # -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  
+  # Position Controllers ---------------------------------------
+  
+
+  #     ***********  LEFT  **************
+
+  bacino_femore_sx_Z_position:
+    type: effort_controllers/JointPositionController
+    joint: bacino_femore_sx_Z
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  bacino_femore_sx_Y_position:
+    type: effort_controllers/JointPositionController
+    joint: bacino_femore_sx_Y
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  bacino_femore_sx_X_position:
+    type: effort_controllers/JointPositionController
+    joint: bacino_femore_sx_X
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  ginocchio_sx_position:
+    type: effort_controllers/JointPositionController
+    joint: ginocchio_sx
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  tibia_piede_sx_X_position:
+    type: effort_controllers/JointPositionController
+    joint: tibia_piede_sx_X
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  tibia_piede_sx_Y_position:
+    type: effort_controllers/JointPositionController
+    joint: tibia_piede_sx_Y
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+
+  #     ***********  RIGHT  **************
+
+  bacino_femore_dx_Z_position:
+    type: effort_controllers/JointPositionController
+    joint: bacino_femore_dx_Z
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  bacino_femore_dx_Y_position:
+    type: effort_controllers/JointPositionController
+    joint: bacino_femore_dx_Y
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  bacino_femore_dx_X_position:
+    type: effort_controllers/JointPositionController
+    joint: bacino_femore_dx_X
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  ginocchio_dx_position:
+    type: effort_controllers/JointPositionController
+    joint: ginocchio_dx
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  tibia_piede_dx_X_position:
+    type: effort_controllers/JointPositionController
+    joint: tibia_piede_dx_X
+    pid: {p: 45, i: 0.0, d: 0.0}
+
+  tibia_piede_dx_Y_position:
+    type: effort_controllers/JointPositionController
+    joint: tibia_piede_dx_Y
+    pid: {p: 45, i: 0.0, d: 0.0}
+

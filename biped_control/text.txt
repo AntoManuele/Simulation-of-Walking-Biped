@@ -1,0 +1,260 @@
+header: 
+  seq: 208
+  stamp: 
+    secs: 20
+    nsecs: 800000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 209
+  stamp: 
+    secs: 20
+    nsecs: 900000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 210
+  stamp: 
+    secs: 21
+    nsecs:         0
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 211
+  stamp: 
+    secs: 21
+    nsecs: 100000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 212
+  stamp: 
+    secs: 21
+    nsecs: 200000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 213
+  stamp: 
+    secs: 21
+    nsecs: 301000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 214
+  stamp: 
+    secs: 21
+    nsecs: 401000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 215
+  stamp: 
+    secs: 21
+    nsecs: 501000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 216
+  stamp: 
+    secs: 21
+    nsecs: 600000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 217
+  stamp: 
+    secs: 21
+    nsecs: 700000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 218
+  stamp: 
+    secs: 21
+    nsecs: 800000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 219
+  stamp: 
+    secs: 21
+    nsecs: 900000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 220
+  stamp: 
+    secs: 22
+    nsecs:         0
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 221
+  stamp: 
+    secs: 22
+    nsecs: 100000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 222
+  stamp: 
+    secs: 22
+    nsecs: 200000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 223
+  stamp: 
+    secs: 22
+    nsecs: 300000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 224
+  stamp: 
+    secs: 22
+    nsecs: 400000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 225
+  stamp: 
+    secs: 22
+    nsecs: 500000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 226
+  stamp: 
+    secs: 22
+    nsecs: 600000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---
+header: 
+  seq: 227
+  stamp: 
+    secs: 22
+    nsecs: 700000000
+  frame_id: ''
+name: [ginocchio_dx, bacino_femore_dx_X, bacino_femore_sx_X, tibia_piede_dx_Y, tibia_piede_sx_Y,
+  bacino_femore_dx_Y, bacino_femore_sx_Y, ginocchio_sx, tibia_piede_dx_X, tibia_piede_sx_X,
+  bacino_femore_dx_Z, bacino_femore_sx_Z]
+position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+velocity: []
+effort: []
+---

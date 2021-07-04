@@ -1,0 +1,1618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="biped_sensor">
+
+  <gazebo reference="base_link"/>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/biped_sensor</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+  <link
+    name="bacino">
+    <inertial>
+      <origin
+        xyz="-0.0010167 -0.0077191 -0.020469"
+        rpy="0 0 0" />
+      <mass
+        value="0.3772" />
+      <inertia
+        ixx="0.00018106"
+        ixy="4.6379E-08"
+        ixz="-1.232E-08"
+        iyy="0.00082586"
+        iyz="6.4316E-08"
+        izz="0.00074354" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/bacino.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/bacino.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="virtual_alto_sx">
+    <inertial>
+      <origin
+        xyz="-0.0458713543037101 1.77400302212027E-07 0.056450738451267"
+        rpy="0 0 0" />
+      <mass
+        value="0.115855730586399" />
+      <inertia
+        ixx="5.95435827519876E-05"
+        ixy="7.42733186143597E-11"
+        ixz="5.41125190516309E-06"
+        iyy="5.67407082058772E-05"
+        iyz="4.2632433524735E-11"
+        izz="3.27572329141349E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_alto_sx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_alto_sx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="bacino_femore_sx_Z"
+    type="revolute">
+    <origin
+      xyz="0.075562 0.035045 -0.0054533"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="bacino" />
+    <child
+      link="virtual_alto_sx" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="virtual_basso_sx">
+    <inertial>
+      <origin
+        xyz="0.0331706638240386 -9.77406590331464E-06 0.00748377063464011"
+        rpy="0 0 0" />
+      <mass
+        value="0.014413364941098" />
+      <inertia
+        ixx="4.05355408980812E-06"
+        ixy="-2.34400096105636E-09"
+        ixz="2.49416261161307E-09"
+        iyy="4.41748623627705E-06"
+        iyz="-1.4948375023912E-10"
+        izz="6.03680654683605E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_basso_sx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_basso_sx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="bacino_femore_sx_X"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0944"
+      rpy="0 0 3.1416" />
+    <parent
+      link="virtual_alto_sx" />
+    <child
+      link="virtual_basso_sx" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="femore_sx">
+    <inertial>
+      <origin
+        xyz="0.0087159997309831 0.0793352773114439 -0.000539956495398536"
+        rpy="0 0 0" />
+      <mass
+        value="0.146600424813841" />
+      <inertia
+        ixx="0.00012999246707627"
+        ixy="2.08196637366308E-05"
+        ixz="-1.62279859323434E-07"
+        iyy="3.1754243307238E-05"
+        iyz="1.62283745671491E-07"
+        izz="0.000141575751539658" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/femore_sx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/femore_sx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="bacino_femore_sx_Y"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="virtual_basso_sx" />
+    <child
+      link="femore_sx" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="tibia_sx">
+    <inertial>
+      <origin
+        xyz="-0.00415234759626393 0.0894307278383192 5.13680905876723E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0609737488765016" />
+      <inertia
+        ixx="0.000129190733657075"
+        ixy="6.8224199810698E-06"
+        ixz="-1.79530526295318E-09"
+        iyy="1.03752626762394E-05"
+        iyz="3.85150979961607E-09"
+        izz="0.000125514455995523" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/tibia_sx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/tibia_sx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="ginocchio_sx"
+    type="revolute">
+    <origin
+      xyz="-0.00067494 0.18 0"
+      rpy="0 0 0" />
+    <parent
+      link="femore_sx" />
+    <child
+      link="tibia_sx" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="virtual_piede_sx">
+    <inertial>
+      <origin
+        xyz="-0.000411479921011162 -0.0135357079048356 -0.0233858763757063"
+        rpy="0 0 0" />
+      <mass
+        value="0.0961864580614458" />
+      <inertia
+        ixx="2.47751447574637E-05"
+        ixy="1.62282542904181E-07"
+        ixz="6.53562637468301E-22"
+        iyy="1.55131393235614E-05"
+        iyz="1.62281062090379E-07"
+        izz="2.46513644151311E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_piede_sx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_piede_sx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="tibia_piede_sx_Y"
+    type="revolute">
+    <origin
+      xyz="-0.011973 0.18 0"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="tibia_sx" />
+    <child
+      link="virtual_piede_sx" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="piede_sx">
+    <inertial>
+      <origin
+        xyz="0.0104221050632021 -0.025944747822545 -0.0363779140693963"
+        rpy="0 0 0" />
+      <mass
+        value="0.107769425869012" />
+      <inertia
+        ixx="0.000240619406274044"
+        ixy="9.21935184508345E-08"
+        ixz="-1.49825413122569E-10"
+        iyy="0.000107959697844856"
+        iyz="4.68734752434789E-09"
+        izz="0.000346437448236055" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/piede_sx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/piede_sx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="tibia_piede_sx_X"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="virtual_piede_sx" />
+    <child
+      link="piede_sx" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="sensore_sx2">
+    <inertial>
+      <origin
+        xyz="0 1.38777878078145E-17 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.15831200000002E-06"
+        ixy="2.54604797674591E-20"
+        ixz="1.85382296088951E-22"
+        iyy="3.18931200000001E-06"
+        iyz="5.16259851144025E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_sx2"
+    type="revolute">
+    <origin
+      xyz="-0.017 -0.066 -0.045"
+      rpy="0 0 0" />
+    <parent
+      link="piede_sx" />
+    <child
+      link="sensore_sx2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />    
+  </joint>
+  <link
+    name="sensore_sx1">
+    <inertial>
+      <origin
+        xyz="0 1.38777878078145E-17 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.15831200000001E-06"
+        ixy="2.68227883109521E-20"
+        ixz="3.54287231429522E-23"
+        iyy="3.18931200000001E-06"
+        iyz="5.3605509847655E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_sx1"
+    type="revolute">
+    <origin
+      xyz="0.043 -0.066 -0.045"
+      rpy="0 0 0" />
+    <parent
+      link="piede_sx" />
+    <child
+      link="sensore_sx1" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+  <link
+    name="sensore_sx4">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-18 2.77555756156289E-17 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.15831200000002E-06"
+        ixy="2.45622226379735E-20"
+        ixz="1.50648348459824E-22"
+        iyy="3.18931200000001E-06"
+        iyz="1.62459053578985E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_sx4"
+    type="revolute">
+    <origin
+      xyz="-0.017 0.024 -0.045"
+      rpy="0 0 0" />
+    <parent
+      link="piede_sx" />
+    <child
+      link="sensore_sx4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+  <link
+    name="sensore_sx3">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 1.38777878078145E-17 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.15831200000002E-06"
+        ixy="2.73861475777991E-20"
+        ixz="6.48790044796476E-23"
+        iyy="3.18931200000001E-06"
+        iyz="4.75107592308875E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_sx3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_sx3"
+    type="revolute">
+    <origin
+      xyz="0.043 0.024 -0.045"
+      rpy="0 0 0" />
+    <parent
+      link="piede_sx" />
+    <child
+      link="sensore_sx3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+  <link
+    name="virtual_alto_dx">
+    <inertial>
+      <origin
+        xyz="-0.0458713543078891 1.7739708756126E-07 0.0564507384533377"
+        rpy="0 0 0" />
+      <mass
+        value="0.115855730556867" />
+      <inertia
+        ixx="5.9543582747119E-05"
+        ixy="7.42785362786974E-11"
+        ixz="5.41125190849842E-06"
+        iyy="5.67407081978897E-05"
+        iyz="4.26352262181005E-11"
+        izz="3.27572329033616E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_alto_dx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_alto_dx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="bacino_femore_dx_Z"
+    type="revolute">
+    <origin
+      xyz="-0.077438 0.035045 -0.0054533"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="bacino" />
+    <child
+      link="virtual_alto_dx" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+  <link
+    name="virtual_basso_dx">
+    <inertial>
+      <origin
+        xyz="0.0331706638240384 -9.77406588083263E-06 0.00748377063464012"
+        rpy="0 0 0" />
+      <mass
+        value="0.014413364941098" />
+      <inertia
+        ixx="4.05355408980812E-06"
+        ixy="-2.34400096130375E-09"
+        ixz="2.49416261161241E-09"
+        iyy="4.41748623627704E-06"
+        iyz="-1.4948375023736E-10"
+        izz="6.03680654683604E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_basso_dx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_basso_dx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="bacino_femore_dx_X"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0944"
+      rpy="0 0 3.1416" />
+    <parent
+      link="virtual_alto_dx" />
+    <child
+      link="virtual_basso_dx" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+  <link
+    name="femore_dx">
+    <inertial>
+      <origin
+        xyz="0.00871599973098067 0.079335277311443 -0.000539956495398425"
+        rpy="0 0 0" />
+      <mass
+        value="0.146600424813841" />
+      <inertia
+        ixx="0.00012999246707627"
+        ixy="2.08196637366306E-05"
+        ixz="-1.62279859323436E-07"
+        iyy="3.17542433072384E-05"
+        iyz="1.62283745671493E-07"
+        izz="0.000141575751539659" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/femore_dx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/femore_dx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="bacino_femore_dx_Y"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="virtual_basso_dx" />
+    <child
+      link="femore_dx" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="tibia_dx">
+    <inertial>
+      <origin
+        xyz="-0.00415234759626396 0.0894307278383193 5.13680905871172E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0609737488765017" />
+      <inertia
+        ixx="0.000129190733657075"
+        ixy="6.82241998106981E-06"
+        ixz="-1.7953052629526E-09"
+        iyy="1.03752626762394E-05"
+        iyz="3.85150979955106E-09"
+        izz="0.000125514455995523" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/tibia_dx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/tibia_dx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="ginocchio_dx"
+    type="revolute">
+    <origin
+      xyz="-0.00067494 0.18 0"
+      rpy="0 0 0" />
+    <parent
+      link="femore_dx" />
+    <child
+      link="tibia_dx" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="virtual_piede_dx">
+    <inertial>
+      <origin
+        xyz="-0.000411479921011329 -0.0135357079048357 -0.023385876375704"
+        rpy="0 0 0" />
+      <mass
+        value="0.0961864580614458" />
+      <inertia
+        ixx="2.47751447574637E-05"
+        ixy="1.62282542904189E-07"
+        ixz="2.19838515084382E-21"
+        iyy="1.55131393235614E-05"
+        iyz="1.62281062090384E-07"
+        izz="2.46513644151311E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_piede_dx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/virtual_piede_dx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="tibia_piede_dx_Y"
+    type="revolute">
+    <origin
+      xyz="-0.011973 0.18 0"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="tibia_dx" />
+    <child
+      link="virtual_piede_dx" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+  <link
+    name="piede_dx">
+    <inertial>
+      <origin
+        xyz="-0.0104223968155576 -0.025944747822544 -0.0363779140693953"
+        rpy="0 0 0" />
+      <mass
+        value="0.107769425869013" />
+      <inertia
+        ixx="0.000240619406274045"
+        ixy="-9.21930554201112E-08"
+        ixz="-1.49825413127184E-10"
+        iyy="0.000107959697844857"
+        iyz="4.68734753097106E-09"
+        izz="0.000346437448236057" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/piede_dx.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/piede_dx.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="tibia_piede_dx_X"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="virtual_piede_dx" />
+    <child
+      link="piede_dx" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1.5"
+      velocity="1.0" />
+    <dynamics damping="0.2" />
+  </joint>
+
+  <link
+    name="sensore_dx1">
+    <inertial>
+      <origin
+        xyz="0 -3.46944695195361E-18 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.158312E-06"
+        ixy="3.85663185018525E-20"
+        ixz="1.14713681641955E-22"
+        iyy="3.189312E-06"
+        iyz="7.71248556814863E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_dx1"
+    type="revolute">
+    <origin
+      xyz="-0.043 -0.066 -0.045"
+      rpy="0 0 0" />
+    <parent
+      link="piede_dx" />
+    <child
+      link="sensore_dx1" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+
+  <link
+    name="sensore_dx2">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-18 -3.46944695195361E-18 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.158312E-06"
+        ixy="4.03443633426516E-20"
+        ixz="1.56701843511805E-22"
+        iyy="3.189312E-06"
+        iyz="7.05264005264693E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_dx2"
+    type="revolute">
+    <origin
+      xyz="0.017 -0.066 -0.045"
+      rpy="0 0 0" />
+    <parent
+      link="piede_dx" />
+    <child
+      link="sensore_dx2" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+
+  <link
+    name="sensore_dx3">
+    <inertial>
+      <origin
+        xyz="0 0 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.158312E-06"
+        ixy="-3.78849037552299E-20"
+        ixz="1.53011166969175E-22"
+        iyy="3.189312E-06"
+        iyz="-7.84512549293194E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_dx3"
+    type="revolute">
+    <origin
+      xyz="-0.043 0.024 -0.041"
+      rpy="-3.1416 0 -3.1416" />
+    <parent
+      link="piede_dx" />
+    <child
+      link="sensore_dx3" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+
+  <link
+    name="sensore_dx4">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-18 0 0.002"
+        rpy="0 0 0" />
+      <mass
+        value="0.010584" />
+      <inertia
+        ixx="7.158312E-06"
+        ixy="-4.04818965122291E-20"
+        ixz="1.1605392352247E-22"
+        iyy="3.189312E-06"
+        iyz="-7.41765833391343E-22"
+        izz="1.03194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://biped_sensor/meshes/sensore_dx4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="joint_sensore_dx4"
+    type="revolute">
+    <origin
+      xyz="0.017 0.024 -0.041"
+      rpy="-3.1416 0 -3.1416" />
+    <parent
+      link="piede_dx" />
+    <child
+      link="sensore_dx4" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0.0" />
+  </joint>
+
+
+
+
+<!--******************* TRANSMISSION **********************-->
+
+    <transmission name="trans_bacino_femore_sx_Z">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bacino_femore_sx_Z">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="bacino_femore_sx_Z_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_bacino_femore_sx_Y">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bacino_femore_sx_Y">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="bacino_femore_sx_Y_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_bacino_femore_sx_X">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bacino_femore_sx_X">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="bacino_femore_sx_X_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_ginocchio_sx">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="ginocchio_sx">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="ginocchio_sx_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_tibia_piede_sx_X">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="tibia_piede_sx_X">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="tibia_piede_sx_X_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_tibia_piede_sx_Y">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="tibia_piede_sx_Y">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="tibia_piede_sx_Y_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_bacino_femore_dx_Z">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bacino_femore_dx_Z">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="bacino_femore_dx_Z_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_bacino_femore_dx_Y">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bacino_femore_dx_Y">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="bacino_femore_dx_Y_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_bacino_femore_dx_X">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bacino_femore_dx_X">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="bacino_femore_dx_X_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_ginocchio_dx">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="ginocchio_dx">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="ginocchio_dx_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_tibia_piede_dx_X">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="tibia_piede_dx_X">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="tibia_piede_dx_X_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_tibia_piede_dx_Y">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="tibia_piede_dx_Y">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="tibia_piede_dx_Y_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+
+<gazebo reference="piede_dx">
+<sensor type="contact" name="piede_dx_contact">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>piede_dx_collision</collision>
+  </contact>
+  <plugin name="contact_plugin" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>piede_dx_contact</bumperTopicName>
+    <frameName>piede_dx</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+<gazebo reference="piede_sx">
+<sensor type="contact" name="piede_sx_contact">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>piede_sx_collision</collision>
+  </contact>
+  <plugin name="contact_plugin" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>piede_sx_contact</bumperTopicName>
+    <frameName>piede_sx</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+<!-- ATTRITO E SENSORE DI CONTATTO PIEDE DESTRO -->
+
+ <gazebo reference="sensore_dx1">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_dx1">
+<sensor type="contact" name="sensore_contact_dx1">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_dx1_collision</collision>
+  </contact>
+  <plugin name="contact_plugin" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_dx1</bumperTopicName>
+    <frameName>sensore_dx1</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+ <gazebo reference="sensore_dx2">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_dx2">
+<sensor type="contact" name="sensore_contact_dx2">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_dx2_collision</collision>
+  </contact>
+  <plugin name="contact_plugin" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_dx2</bumperTopicName>
+    <frameName>sensore_dx2</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+ <gazebo reference="sensore_dx3">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_dx3">
+<sensor type="contact" name="sensore_contact_dx3">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_dx3_collision</collision>
+  </contact>
+  <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_dx3</bumperTopicName>
+    <frameName>sensore_dx3</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+ <gazebo reference="sensore_dx4">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_dx4">
+<sensor type="contact" name="sensore_contact_dx4">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_dx4_collision</collision>
+  </contact>
+  <plugin name="contact_plugin" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_dx4</bumperTopicName>
+    <frameName>sensore_dx4</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+
+ <gazebo reference="sensore_sx1">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_sx1">
+<sensor type="contact" name="sensore_contact_sx1">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_sx1_collision</collision>
+  </contact>
+  <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_sx1</bumperTopicName>
+    <frameName>sensore_sx1</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+ <gazebo reference="sensore_sx2">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_sx2">
+<sensor type="contact" name="sensore_contact_sx2">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_sx2_collision</collision>
+  </contact>
+  <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_sx2</bumperTopicName>
+    <frameName>sensore_sx2</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+ <gazebo reference="sensore_sx3">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_sx3">
+<sensor type="contact" name="sensore_contact_sx3">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_sx3_collision</collision>
+  </contact>
+  <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_sx3</bumperTopicName>
+    <frameName>sensore_sx3</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+
+ <gazebo reference="sensore_sx4">
+    <kp>100000.0</kp>
+    <kd>100.0</kd>
+    <mu1>200.0</mu1>
+    <mu2>100.0</mu2>
+    <!--<maxContacts>30</maxContacts>-->
+    <fdir1>1 0 0</fdir1>
+  </gazebo>
+<gazebo reference="sensore_sx4">
+<sensor type="contact" name="sensore_contact_sx4">
+  <always_on>true</always_on>
+  <update_rate>5</update_rate>
+  <contact>
+    <collision>sensore_sx4_collision</collision>
+  </contact>
+  <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+    <bumperTopicName>sensore_contact_sx4</bumperTopicName>
+    <frameName>sensore_sx4</frameName>
+  </plugin>       
+</sensor>
+</gazebo>
+
+</robot>
