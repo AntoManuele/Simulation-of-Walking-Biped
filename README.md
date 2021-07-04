@@ -2,6 +2,16 @@
 
 Simulation of a walking biped in ROS-Gazebo.
 
+<figure class="image">
+  <img src="pictures/biped1.png" width="400">
+  <figcaption></figcaption>
+</figure>
+
+<figure class="image">
+  <img src="pictures/biped2.png" width="400">
+  <figcaption></figcaption>
+</figure>
+
 <h3>Launch the simulation</h3>
 To start the simulation you have to launch the following commands:
 
@@ -23,3 +33,9 @@ An example of a possible command is:
 ```
 >> python zwInit.py R 3 SLWAVR_SQSINw40h45dCM11i20
 ```
+
+
+<figure class="image">
+  <img src="pictures/biped.gif" width="500">
+  <figcaption></figcaption>
+</figure>
