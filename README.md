@@ -3,12 +3,7 @@
 Simulation of a walking biped in ROS-Gazebo.
 
 <figure class="image">
-  <img src="pictures/biped1.png" width="400">
-  <figcaption></figcaption>
-</figure>
-
-<figure class="image">
-  <img src="pictures/biped2.png" width="400">
+  <img src="pictures/biped1.png" width="460">
   <figcaption></figcaption>
 </figure>
 
@@ -36,6 +31,6 @@ An example of a possible command is:
 
 
 <figure class="image">
-  <img src="pictures/biped.gif" width="500">
+  <img src="pictures/biped.gif" width="650">
   <figcaption></figcaption>
 </figure>
