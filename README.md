@@ -12,7 +12,7 @@ To start the simulation you have to launch the following commands:
 
 ```
 >> catkin_make
->> roslaunch roslaunch biped gazebo.launch
+>> roslaunch biped_sensor gazebo.launch
 ```
 
 To move the biped you have move in the directory /biped_control/src and launch the command:
