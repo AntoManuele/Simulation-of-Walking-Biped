@@ -21,7 +21,7 @@ To move the biped you have move in the directory /biped_control/src and launch t
 >> python zwInit.py <initial_foot> <#_steps> <directory_CSV>
 ```
 
-where you have to replace <initial_foot> with the letter of the foot you want to start the walk (R / L), <#_steps> with the number of steps and <directory_CSV> with the name of one of the directory contained in /src, they respresent the different shape of walk studied.
+where you have to replace <initial_foot> with the letter of the foot with which you want to start the walk (R / L), <#_steps> with the number of steps and <directory_CSV> with the name of one of the directory contained in /src, they respresent the different shape of walk studied.
 An example of a possible command is:
 
 
