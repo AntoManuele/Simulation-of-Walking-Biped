@@ -15,7 +15,7 @@ To start the simulation you have to launch the following commands:
 >> roslaunch biped_sensor gazebo.launch
 ```
 
-To move the biped you have move in the directory /biped_control/src and launch the command:
+To move the biped you have to move in the directory /biped_control/src and launch the command:
 
 ```
 >> python zwInit.py <initial_foot> <#_steps> <directory_CSV>
