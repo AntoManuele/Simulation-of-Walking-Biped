@@ -37,8 +37,8 @@ int main (int argc, char *argv[]) {
 	
 	else {
 	
-		ros::init(argc, argv, "talker");
-		ros::NodeHandle n;
+		//ros::init(argc, argv, "talker");
+		//ros::NodeHandle n;
 		
 		foot 	= 	argv[1];
 		steps 	= 	atoi(argv[2]);
