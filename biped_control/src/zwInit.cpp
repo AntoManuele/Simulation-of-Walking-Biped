@@ -2,8 +2,9 @@
 #include 	<vector>
 #include 	<string>
 #include 	<map>
-//#include	"ros/ros.h"
-//#include 	"std_msgs/String.h"
+#include	"ros/ros.h"
+#include 	"std_msgs/String.h"
+#include    <std_msgs/Float64.h>
 #include 	<sstream>
 using 	namespace std;
 
@@ -14,12 +15,12 @@ using 	namespace std;
 
 // 	global variables definition
 int 				signR[JOINTS]	=  {1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1, -1};
+double              zeroQ[JOINTS]   =  {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 
 //	function prototypes
 vector<string> 		generate_sequence (string init_foot, int num_steps, string directory);
-
-
+//void                zeroposeFunc();
 
 
 /* ---------------------------------   MAIN   ----------------------------*/
@@ -36,16 +37,45 @@ int main (int argc, char *argv[]) {
 	}
 	
 	else {
-	
-		//ros::init(argc, argv, "talker");
-		//ros::NodeHandle n;
-		
-		foot 	= 	argv[1];
-		steps 	= 	atoi(argv[2]);
-		csv_dir = 	argv[3];
-	
-		vector<string> sequence 	= 	generate_sequence (foot, steps, csv_dir);
-	
+
+        foot 	= 	argv[1];
+        steps 	= 	atoi(argv[2]);
+        csv_dir = 	argv[3];
+
+        // ROS
+        ros::init(argc, argv, "walk");
+        ros::NodeHandle n;
+
+        ros::Publisher BFZ_SX = n.advertise<std_msgs::Float64>("biped_sensor/bacino_femore_sx_Z_position/command", 1000);
+        ros::Publisher BFY_SX = n.advertise<std_msgs::Float64>("biped_sensor/bacino_femore_sx_Y_position/command", 1000);
+        ros::Publisher BFX_SX = n.advertise<std_msgs::Float64>("biped_sensor/bacino_femore_sx_X_position/command", 1000);
+        ros::Publisher G_SX   = n.advertise<std_msgs::Float64>("biped_sensor/ginocchio_sx_position/command", 1000);
+        ros::Publisher TPX_SX = n.advertise<std_msgs::Float64>("biped_sensor/tibia_piede_sx_X_position/command", 1000);
+        ros::Publisher TPY_SX = n.advertise<std_msgs::Float64>("biped_sensor/tibia_piede_sx_Y_position/command", 1000);
+        ros::Publisher BFZ_DX = n.advertise<std_msgs::Float64>("biped_sensor/bacino_femore_dx_Z_position/command", 1000);
+        ros::Publisher BFY_DX = n.advertise<std_msgs::Float64>("biped_sensor/bacino_femore_dx_Y_position/command", 1000);
+        ros::Publisher BFX_DX = n.advertise<std_msgs::Float64>("biped_sensor/bacino_femore_dx_X_position/command", 1000);
+        ros::Publisher G_DX   = n.advertise<std_msgs::Float64>("biped_sensor/ginocchio_dx_position/command", 1000);
+        ros::Publisher TPX_DX = n.advertise<std_msgs::Float64>("biped_sensor/tibia_piede_dx_X_position/command", 1000);
+        ros::Publisher TPY_DX = n.advertise<std_msgs::Float64>("biped_sensor/tibia_piede_dx_Y_position/command", 1000);
+
+        vector<string> sequence 	= 	generate_sequence (foot, steps, csv_dir);
+
+        ros::Rate rate(10);
+        while (ros::ok())
+        {
+
+            std_msgs::Float64 msg;
+            msg.data = 1.0;
+            BFZ_SX.publish(msg);
+            ros::spinOnce();
+            rate.sleep();
+
+
+            //ROS_INFO("%s", msg.data.c_str());
+        }
+
+
 	}
 	
 	
@@ -92,23 +122,10 @@ vector<string> 		generate_sequence (string init_foot, int num_steps, string dire
 	}
 	cout << "----------------------" << endl;
 
-	
 	return sequence;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ----------------------------- */
 
 
 

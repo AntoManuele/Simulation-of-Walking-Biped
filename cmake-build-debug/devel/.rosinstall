@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/antonio/catkin_ws/src/Simulation-of-Walking-Biped/cmake-build-debug/devel/setup.sh
