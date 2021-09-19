@@ -4,16 +4,20 @@
 #include 	<map>
 #include    <fstream>
 #include	"ros/ros.h"
-#include 	"std_msgs/String.h"
 #include    <std_msgs/Float64.h>
 #include 	<sstream>
+#include    <unistd.h>
 using 	namespace std;
 
 // 	parameters
-#define 	param_num	 4
-#define 	NUM_JOINTS 		 12
-#define     publish_rate 10
+#define 	NUM_PARAM	    4
+#define 	NUM_JOINTS 		12
+#define     publish_rate    10
+#define     QUEUE_SIZE      16
 
+const vector<int> signR = {1, -1, 1, -1, -1, 1, -1, 1, -1, 1, 1, 1};
+const vector<int> signL = {-1, 1, -1, 1, 1, -1, 1, -1, 1, -1, -1, -1};
+const map<string, vector<int>>  sign  {{"R", signR}, {"L", signL}};
 
 class Topics {
 public:
@@ -58,9 +62,8 @@ public:
 };
 
 
-
 //	function prototypes
-vector<string> 		    generate_sequence (string init_foot, int num_steps);
+vector<string> 		    generate_sequence(string init_foot, int num_steps);
 vector<Biped_Joint>     Create_Joints(ros::NodeHandle n, unsigned int queue);
 void                    init_Biped(vector<Biped_Joint> all);
 void                    move_Biped(vector<Biped_Joint> all, vector<string> seq, string directory);
@@ -74,9 +77,8 @@ int main (int argc, char *argv[]) {
 	int 	steps; 							// number of steps
 	string 	foot;							// initial foot
 	string 	csv_dir;						// directory, walk shape
-    int     queue_size = 16;
 
-	if (argc != param_num) {
+	if (argc != NUM_PARAM) {
 		cout << "Inconsistent number of parameters" << endl;
 		exit(EXIT_FAILURE);
 	}
@@ -87,32 +89,24 @@ int main (int argc, char *argv[]) {
         // ROS
         ros::init(argc, argv, "walk");
         ros::NodeHandle node;
-
-        allJoints = Create_Joints(node, queue_size);
-        vector<string> sequence 	= 	generate_sequence (foot, steps);
-
         ros::Rate rate(publish_rate);
-        //while (ros::ok()) {
 
-        // Send Zero, initial position
-        init_Biped(allJoints);
-        //move_Biped(allJoints, sequence, csv_dir);
+        allJoints = Create_Joints(node, QUEUE_SIZE);
+        vector<string> sequence = generate_sequence (foot, steps);
 
-        ros::spinOnce();
-        //rate.sleep();
+        while (ros::ok()) {
 
+            init_Biped(allJoints);                                      // Send Zero, initial position
+            move_Biped(allJoints, sequence, csv_dir);       // Send values read from files
 
-            //ROS_INFO("%s", msg.data.c_str());
-      //  }
-
+            ros::spinOnce();
+            rate.sleep();
+            ROS_INFO("FINISH!");
+            break;
+        }
 
 	}
-	
-	
-
-	
 }
-
 
 
 /*------------------------   FUNCTIONS    ---------------------------------*/
@@ -132,12 +126,12 @@ vector<string> 		generate_sequence(string init_foot, int num_steps) {
 	// Middle phase
 	for (int i = 1; i < num_steps; i++) {
 		current = !current;
-		sequence.push_back("walk" + feet[current]);
+		sequence.push_back("walk" + feet[current] + ".csv");
 		sequence.push_back("change" + feet[!current] + "to" + feet[current] + ".csv");
 	}
 	// Final phase
-	sequence.push_back("finish" + feet[current]);
-	sequence.push_back("reset" + feet[current]);
+	sequence.push_back("finish" + feet[current] + ".csv");
+	sequence.push_back("reset" + feet[current] + ".csv");
 	// print the generated sequence
 	cout << "----------------------" << endl;
 	cout << "Generated sequence: " << endl;
@@ -176,7 +170,8 @@ void  init_Biped(vector<Biped_Joint> all) {
 
     for (int i = 0; i < NUM_JOINTS; i++)
         all[i].send_Zero();
-    cout << "ZERO POSE: done" << endl;
+    ROS_INFO("ZERO POSE: done");
+    ros::Duration(1.5).sleep();
 }
 
 /* --------------------------------------------------------------------------- */
@@ -184,18 +179,36 @@ void  init_Biped(vector<Biped_Joint> all) {
 void  move_Biped(vector<Biped_Joint> all, vector<string> seq, string directory) {
 
     double q;
+    int k;
+    string file_name, row, col, foot;
+
     for(int i = 0; i < seq.size(); i++) {
-        ifstream csv_file("/" + directory + "/" + seq[i]);
-        //csv_file.open("/" + directory + "/" + seq[i]);
+        file_name = directory + "/" + seq[i];
+        ifstream csv_file(file_name);
+        foot = file_name[file_name.size()-5];  //take the current foot by the name of the file
         if (!csv_file.is_open()) {
-            cerr << "Error: there is no file called: " << "/" << directory << "/" << seq[i] << endl;
+            cerr << "Error: there is no file called: " << seq[i] << endl;
+            cerr << "Please control if you are in correct folder -> .../biped_control/src/" << endl;
             exit(EXIT_FAILURE);
         }
-        while (csv_file >> q) {
-            cout << q << endl;
+        else cout << "Opening file " << seq[i] << "..." << endl;
+
+        while (getline(csv_file, row)) {
+            istringstream iss{row};
+            k = 0;
+            do {                                          //for each joint
+                getline(iss, col, ',');
+                q = stod(col);
+                all[k].send_Value(q*sign[foot][k]);
+                k++;
+            } while(k < NUM_JOINTS);
+
+            ros::Duration(0.005).sleep();
         }
+
+        ROS_INFO("%s: done", seq[i].c_str());
+        ros::Duration(0.2).sleep();
         csv_file.close();
     }
-
 }
 
