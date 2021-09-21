@@ -1,7 +1,7 @@
 #include 	<iostream>
 #include 	<vector>
 #include 	<string>
-#include 	<map>
+#include    <map>
 #include    <fstream>
 #include	"ros/ros.h"
 #include    <std_msgs/Float64.h>
@@ -10,31 +10,30 @@
 using 	namespace std;
 
 // 	parameters
-#define 	NUM_PARAM	    4
-#define 	NUM_JOINTS 		12
-#define     publish_rate    10
-#define     QUEUE_SIZE      16
+#define     NUM_PARAM		4
+#define     NUM_JOINTS 		12
+#define     publish_rate	10
+#define     QUEUE_SIZE		16
 
-const vector<int> signR = {1, -1, 1, -1, -1, 1, -1, 1, -1, 1, 1, 1};
-const vector<int> signL = {-1, 1, -1, 1, 1, -1, 1, -1, 1, -1, -1, -1};
+const vector<int> signR = {1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1, -1};
+const vector<int> signL = {-1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1};
 const map<string, vector<int>>  sign  {{"R", signR}, {"L", signL}};
 
 class Topics {
 public:
     const static inline vector<string> name = { "biped_sensor/bacino_femore_sx_Z_position/command",
-                                                "biped_sensor/bacino_femore_sx_Y_position/command",
                                                 "biped_sensor/bacino_femore_sx_X_position/command",
+                                                "biped_sensor/bacino_femore_sx_Y_position/command",
                                                 "biped_sensor/ginocchio_sx_position/command",
-                                                "biped_sensor/tibia_piede_sx_X_position/command",
                                                 "biped_sensor/tibia_piede_sx_Y_position/command",
+                                                "biped_sensor/tibia_piede_sx_X_position/command",
                                                 "biped_sensor/bacino_femore_dx_Z_position/command",
-                                                "biped_sensor/bacino_femore_dx_Y_position/command",
                                                 "biped_sensor/bacino_femore_dx_X_position/command",
+                                                "biped_sensor/bacino_femore_dx_Y_position/command",
                                                 "biped_sensor/ginocchio_dx_position/command",
-                                                "biped_sensor/tibia_piede_dx_X_position/command",
-                                                "biped_sensor/tibia_piede_dx_Y_position/command" };
+                                                "biped_sensor/tibia_piede_dx_Y_position/command",
+                                                "biped_sensor/tibia_piede_dx_X_position/command" };
 };
-
 
 class Biped_Joint {
 private:
@@ -127,9 +126,11 @@ vector<string> 		generate_sequence(string init_foot, int num_steps) {
 	for (int i = 1; i < num_steps; i++) {
 		current = !current;
 		sequence.push_back("walk" + feet[current] + ".csv");
+        sequence.push_back("juncW" + feet[current] + ".csv");
 		sequence.push_back("change" + feet[!current] + "to" + feet[current] + ".csv");
 	}
 	// Final phase
+    current = !current;
 	sequence.push_back("finish" + feet[current] + ".csv");
 	sequence.push_back("reset" + feet[current] + ".csv");
 	// print the generated sequence
@@ -147,19 +148,19 @@ vector<string> 		generate_sequence(string init_foot, int num_steps) {
 
 vector<Biped_Joint>     Create_Joints(ros::NodeHandle n, unsigned int q) {
 
-    vector<Biped_Joint> allJoints;
+    vector<Biped_Joint>     allJoints;
     Biped_Joint BFZ_SX(n, Topics::name[0], q); allJoints.push_back(BFZ_SX);
-    Biped_Joint BFY_SX(n, Topics::name[1], q); allJoints.push_back(BFY_SX);
-    Biped_Joint BFX_SX(n, Topics::name[2], q); allJoints.push_back(BFX_SX);
+    Biped_Joint BFX_SX(n, Topics::name[1], q); allJoints.push_back(BFX_SX);
+    Biped_Joint BFY_SX(n, Topics::name[2], q); allJoints.push_back(BFY_SX);
     Biped_Joint G_SX(n,   Topics::name[3], q); allJoints.push_back(G_SX);
-    Biped_Joint TPX_SX(n, Topics::name[4], q); allJoints.push_back(TPX_SX);
-    Biped_Joint TPY_SX(n, Topics::name[5], q); allJoints.push_back(TPY_SX);
+    Biped_Joint TPY_SX(n, Topics::name[4], q); allJoints.push_back(TPY_SX);
+    Biped_Joint TPX_SX(n, Topics::name[5], q); allJoints.push_back(TPX_SX);
     Biped_Joint BFZ_DX(n, Topics::name[6], q); allJoints.push_back(BFZ_DX);
-    Biped_Joint BFY_DX(n, Topics::name[7], q); allJoints.push_back(BFY_DX);
-    Biped_Joint BFX_DX(n, Topics::name[8], q); allJoints.push_back(BFX_DX);
+    Biped_Joint BFX_DX(n, Topics::name[7], q); allJoints.push_back(BFX_DX);
+    Biped_Joint BFY_DX(n, Topics::name[8], q); allJoints.push_back(BFY_DX);
     Biped_Joint G_DX(n,   Topics::name[9], q); allJoints.push_back(G_DX);
-    Biped_Joint TPX_DX(n, Topics::name[10],q); allJoints.push_back(TPX_DX);
-    Biped_Joint TPY_DX(n, Topics::name[11],q); allJoints.push_back(TPY_DX);
+    Biped_Joint TPY_DX(n, Topics::name[10],q); allJoints.push_back(TPY_DX);
+    Biped_Joint TPX_DX(n, Topics::name[11],q); allJoints.push_back(TPX_DX);
 
     return allJoints;
 }
@@ -168,10 +169,13 @@ vector<Biped_Joint>     Create_Joints(ros::NodeHandle n, unsigned int q) {
 
 void  init_Biped(vector<Biped_Joint> all) {
 
-    for (int i = 0; i < NUM_JOINTS; i++)
-        all[i].send_Zero();
+    for (int j = 0; j < 100; j++)
+        for (int i = 0; i < NUM_JOINTS; i++) {
+            all[i].send_Zero();
+            ros::Duration(0.001).sleep();
+        }
     ROS_INFO("ZERO POSE: done");
-    ros::Duration(1.5).sleep();
+    ros::Duration(0.5).sleep();
 }
 
 /* --------------------------------------------------------------------------- */
@@ -185,7 +189,7 @@ void  move_Biped(vector<Biped_Joint> all, vector<string> seq, string directory) 
     for(int i = 0; i < seq.size(); i++) {
         file_name = directory + "/" + seq[i];
         ifstream csv_file(file_name);
-        foot = file_name[file_name.size()-5];  //take the current foot by the name of the file
+        foot = file_name[file_name.size()-5];    //take the current foot by the name of the file
         if (!csv_file.is_open()) {
             cerr << "Error: there is no file called: " << seq[i] << endl;
             cerr << "Please control if you are in correct folder -> .../biped_control/src/" << endl;
@@ -196,18 +200,17 @@ void  move_Biped(vector<Biped_Joint> all, vector<string> seq, string directory) 
         while (getline(csv_file, row)) {
             istringstream iss{row};
             k = 0;
-            do {                                          //for each joint
+            while(k < NUM_JOINTS) {                     //for each joint
                 getline(iss, col, ',');
                 q = stod(col);
-                all[k].send_Value(q*sign[foot][k]);
+                auto it = sign.find(foot);
+                all[k].send_Value(q * it->second[k]);
                 k++;
-            } while(k < NUM_JOINTS);
-
-            ros::Duration(0.005).sleep();
+            }
+            ros::Duration(0.004).sleep();
         }
-
         ROS_INFO("%s: done", seq[i].c_str());
-        ros::Duration(0.2).sleep();
+        ros::Duration(0.25).sleep();
         csv_file.close();
     }
 }
