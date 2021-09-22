@@ -15,6 +15,6 @@ endforeach(dir)
 
 include_directories(${catkin_INCLUDE_DIRS})
 
-add_executable(walk biped_control/src/zwInit.cpp)
+add_executable(walk biped_control/src/zwInit.cpp biped_control/src/biped.hpp)
 target_link_libraries(walk ${catkin_LIBRARIES})
 add_dependencies(walk ${catkin_EXPORTED_TARGETS})

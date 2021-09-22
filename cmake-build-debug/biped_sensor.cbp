@@ -550,6 +550,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/antonio/catkin_ws/src/Simulation-of-Walking-Biped/biped_control/src/biped.hpp">
+			<Option target="walk"/>
+		</Unit>
 		<Unit filename="/home/antonio/catkin_ws/src/Simulation-of-Walking-Biped/biped_control/src/zwInit.cpp">
 			<Option target="walk"/>
 		</Unit>

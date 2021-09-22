@@ -7,61 +7,17 @@
 #include    <std_msgs/Float64.h>
 #include 	<sstream>
 #include    <unistd.h>
+#include    "biped.hpp"
 using 	namespace std;
 
-// 	parameters
+/// 	parameters
 #define     NUM_PARAM		4
 #define     NUM_JOINTS 		12
 #define     publish_rate	10
 #define     QUEUE_SIZE		16
 
-const vector<int> signR = {1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1, -1};
-const vector<int> signL = {-1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1};
-const map<string, vector<int>>  sign  {{"R", signR}, {"L", signL}};
 
-class Topics {
-public:
-    const static inline vector<string> name = { "biped_sensor/bacino_femore_sx_Z_position/command",
-                                                "biped_sensor/bacino_femore_sx_X_position/command",
-                                                "biped_sensor/bacino_femore_sx_Y_position/command",
-                                                "biped_sensor/ginocchio_sx_position/command",
-                                                "biped_sensor/tibia_piede_sx_Y_position/command",
-                                                "biped_sensor/tibia_piede_sx_X_position/command",
-                                                "biped_sensor/bacino_femore_dx_Z_position/command",
-                                                "biped_sensor/bacino_femore_dx_X_position/command",
-                                                "biped_sensor/bacino_femore_dx_Y_position/command",
-                                                "biped_sensor/ginocchio_dx_position/command",
-                                                "biped_sensor/tibia_piede_dx_Y_position/command",
-                                                "biped_sensor/tibia_piede_dx_X_position/command" };
-};
-
-class Biped_Joint {
-private:
-    ros::NodeHandle node;
-    ros::Publisher publisher;
-    string topic;
-    unsigned int queue_size;
-public:
-    Biped_Joint(ros::NodeHandle node, string topic, unsigned int queue_size){
-        this->node = node;
-        this->topic = topic;
-        this->queue_size = queue_size;
-        this->publisher = node.advertise<std_msgs::Float64>(topic, queue_size);
-    }
-    void send_Zero() {
-        std_msgs::Float64 msg;
-        msg.data = 0.0;
-        publisher.publish(msg);
-    }
-    void send_Value(double value) {
-        std_msgs::Float64 msg;
-        msg.data = value;
-        publisher.publish(msg);
-    }
-};
-
-
-//	function prototypes
+///	function prototypes
 vector<string> 		    generate_sequence(string init_foot, int num_steps);
 vector<Biped_Joint>     Create_Joints(ros::NodeHandle n, unsigned int queue);
 void                    init_Biped(vector<Biped_Joint> all);
@@ -85,7 +41,7 @@ int main (int argc, char *argv[]) {
         foot 	= 	argv[1];
         steps 	= 	atoi(argv[2]);
         csv_dir = 	argv[3];
-        // ROS
+        /// ROS
         ros::init(argc, argv, "walk");
         ros::NodeHandle node;
         ros::Rate rate(publish_rate);
@@ -149,18 +105,18 @@ vector<string> 		generate_sequence(string init_foot, int num_steps) {
 vector<Biped_Joint>     Create_Joints(ros::NodeHandle n, unsigned int q) {
 
     vector<Biped_Joint>     allJoints;
-    Biped_Joint BFZ_SX(n, Topics::name[0], q); allJoints.push_back(BFZ_SX);
-    Biped_Joint BFX_SX(n, Topics::name[1], q); allJoints.push_back(BFX_SX);
-    Biped_Joint BFY_SX(n, Topics::name[2], q); allJoints.push_back(BFY_SX);
-    Biped_Joint G_SX(n,   Topics::name[3], q); allJoints.push_back(G_SX);
-    Biped_Joint TPY_SX(n, Topics::name[4], q); allJoints.push_back(TPY_SX);
-    Biped_Joint TPX_SX(n, Topics::name[5], q); allJoints.push_back(TPX_SX);
-    Biped_Joint BFZ_DX(n, Topics::name[6], q); allJoints.push_back(BFZ_DX);
-    Biped_Joint BFX_DX(n, Topics::name[7], q); allJoints.push_back(BFX_DX);
-    Biped_Joint BFY_DX(n, Topics::name[8], q); allJoints.push_back(BFY_DX);
-    Biped_Joint G_DX(n,   Topics::name[9], q); allJoints.push_back(G_DX);
-    Biped_Joint TPY_DX(n, Topics::name[10],q); allJoints.push_back(TPY_DX);
-    Biped_Joint TPX_DX(n, Topics::name[11],q); allJoints.push_back(TPX_DX);
+    Biped_Joint BFZ_SX(n, Topics::BFZ_SX, q); allJoints.push_back(BFZ_SX);
+    Biped_Joint BFX_SX(n, Topics::BFX_SX, q); allJoints.push_back(BFX_SX);
+    Biped_Joint BFY_SX(n, Topics::BFY_SX, q); allJoints.push_back(BFY_SX);
+    Biped_Joint G_SX(n,   Topics::G_SX, q); allJoints.push_back(G_SX);
+    Biped_Joint TPY_SX(n, Topics::TPY_SX, q); allJoints.push_back(TPY_SX);
+    Biped_Joint TPX_SX(n, Topics::TPX_SX, q); allJoints.push_back(TPX_SX);
+    Biped_Joint BFZ_DX(n, Topics::BFZ_DX, q); allJoints.push_back(BFZ_DX);
+    Biped_Joint BFX_DX(n, Topics::BFX_DX, q); allJoints.push_back(BFX_DX);
+    Biped_Joint BFY_DX(n, Topics::BFY_DX, q); allJoints.push_back(BFY_DX);
+    Biped_Joint G_DX(n,   Topics::G_DX, q); allJoints.push_back(G_DX);
+    Biped_Joint TPY_DX(n, Topics::TPY_DX,q); allJoints.push_back(TPY_DX);
+    Biped_Joint TPX_DX(n, Topics::TPX_DX,q); allJoints.push_back(TPX_DX);
 
     return allJoints;
 }
